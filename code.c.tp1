@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define DIM 10
 
-
+#include <locale.h>
 #include <stdio.h>
 
 typedef struct
@@ -15,13 +15,13 @@ void introduzirMatriz (Matriz *matriz)
 {
     do
     {
-        printf("numero de linhas:");
+        printf("Número de linhas:");
         scanf("%d", &matriz->nlinhas);
-        printf("numero de colunas:");
+        printf("Número de colunas:");
         scanf("%d", &matriz->ncolunas);
     }while (matriz->nlinhas<=2 || matriz->nlinhas > DIM);
 
-    printf("numero de elementos:");
+    printf("Número de elementos:");
     scanf("%d", &matriz->ncolunas);
     for(int i = 0; i < matriz->nlinhas; i++)
     {
@@ -92,10 +92,10 @@ int main () {
         printf("Menu:\n");
         printf("1 - Inserir matriz A\n");
         printf("2 - Inserir matriz B\n");
-        printf("3 - troca de matrizes\n");
+        printf("3 - Troca de matrizes\n");
         printf("0 - sair\n");
 
-        printf("Escolha uma opcao: ");
+        printf("Escolha uma opção:");
         scanf("%d", &op);
         switch (op) {
             case 1:
@@ -103,18 +103,18 @@ int main () {
                 break;
         }
     } while (op != 0);
-    printf("cya\n");
+    printf("Cya\n");
 
     return 0;
 }
 //
 //    do {
 //        printf("Menu de Operações:")
-//        printf("1 - soma\n");
-//        printf("2 - multiplicacao\n");
-//        printf("3 - troca de matrizes\n");
-//        printf("0 - sair\n");
-//        printf("Opcao: ");
+//        printf("1 - Soma\n");
+//        printf("2 - Multiplicacao\n");
+//        printf("3 - Troca de matrizes\n");
+//        printf("0 - Sair\n");
+//        printf("Opção:");
 //        scanf("%d",&op);
 //        if(op==1){
 //
@@ -126,7 +126,7 @@ int main () {
 //
 //        }
 //    }while(op!=0);
-//    printf("cya\n");
+//    printf("Cya\n");
 //}
     //declaração de matrizes
 //    matriz a, b, c;
