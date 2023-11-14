@@ -1,7 +1,132 @@
-#define _CRT_SECURE_NO_WARNINGS
+#define DIM 10
 
 #include <stdio.h>
-#include <locale.h>                
-#include <stdlib.h>
-#include <math.h>
-#include <time.h>
+
+typedef struct
+{
+    float m[DIM][DIM];
+    int nlinhas, ncolunas;
+}Matriz;
+
+//função para introduzir uma matriz
+void introduzirMatriz (Matriz *matriz)
+{
+    do
+    {
+        printf("numero de linhas:");
+        scanf("%d", &matriz->nlinhas);
+        printf("numero de colunas:");
+        scanf("%d", &matriz->ncolunas);
+    }while (matriz->nlinhas<=2 || matriz->nlinhas > DIM);
+
+    printf("numero de elementos:");
+    scanf("%d", &matriz->ncolunas);
+    for(int i = 0; i < matriz->nlinhas; i++)
+    {
+        for(int j = 0; j <matriz->ncolunas; j++)
+        {
+            scanf("%f", &matriz->m[i][j]);
+        }
+    }
+}
+
+//função para mostrar matriz
+void mostrarMatriz(Matriz *matriz) {
+
+    for (int i = 0; i < matriz->nlinhas; i++) {
+        for (int j = 0; j < matriz->ncolunas; j++) {
+            scanf("%f", matriz->m[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+//função para somar matrizes
+void somarMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
+{
+    for (int i = 0; i < matrizA->nlinhas; i++)
+    {
+        for (int j = 0; j < matrizB->ncolunas; j++)
+        {
+            matrizA->m[i][j] = matrizA->m[i][j] + matrizB->m[i][j];
+        }
+    }
+}
+
+//função para subtrair matrizes
+void subtrairMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
+{
+    for (int i = 0; i < matrizA->nlinhas; i++)
+    {
+        for (int j = 0; j < matrizB->ncolunas; j++)
+        {
+            matrizA->m[i][j] = matrizA->m[i][j] - matrizB->m[i][j];
+        }
+    }
+}
+
+//função para multiplicar matrizes
+void multiplicarMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
+{
+    for (int i = 0; i < matrizA->nlinhas; i++)
+    {
+        for (int j = 0; j < matrizB->ncolunas; j++)
+        {
+            matrizC->m[i][j] = 0;
+            for(int k = 0; k < matrizA->ncolunas; k++)
+            {
+                matrizC->m[i][j] += matrizA->m[i][k] * matrizB->m[k][j];
+            }
+        }
+    }
+}
+
+int main () {
+    Matriz matrizA, matrizB, matrizC;
+    int nlinhasA, ncolunasA, nlinhasB, ncolunasB;
+    int op;
+
+    do {
+        printf("Menu:\n");
+        printf("1 - Inserir matriz A\n");
+        printf("2 - Inserir matriz B\n");
+        printf("3 - troca de matrizes\n");
+        printf("0 - sair\n");
+
+        printf("Escolha uma opcao: ");
+        scanf("%d", &op);
+        switch (op) {
+            case 1:
+                introduzirMatriz(&matrizA);
+                break;
+        }
+    } while (op != 0);
+    printf("cya\n");
+
+    return 0;
+}
+//
+//    do {
+//        printf("Menu de Operações:")
+//        printf("1 - soma\n");
+//        printf("2 - multiplicacao\n");
+//        printf("3 - troca de matrizes\n");
+//        printf("0 - sair\n");
+//        printf("Opcao: ");
+//        scanf("%d",&op);
+//        if(op==1){
+//
+//        }
+//        else if (op==2){
+//
+//        }
+//        else if (op==3){
+//
+//        }
+//    }while(op!=0);
+//    printf("cya\n");
+//}
+    //declaração de matrizes
+//    matriz a, b, c;
+//
+//    a[0][0]=0;
