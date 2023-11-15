@@ -11,7 +11,7 @@ typedef struct
 }Matriz;
 
 //função para introduzir uma matriz
-void introduzirMatriz (Matriz *matriz)
+void introduzirMatriz(Matriz* matriz)
 {
     do
     {
@@ -19,13 +19,13 @@ void introduzirMatriz (Matriz *matriz)
         scanf("%d", &matriz->nlinhas);
         printf("Número de colunas:");
         scanf("%d", &matriz->ncolunas);
-    }while (matriz->nlinhas<=2 || matriz->nlinhas > DIM);
+    } while (matriz->nlinhas <= 2 || matriz->nlinhas > DIM);
 
     printf("Número de elementos:");
     scanf("%d", &matriz->ncolunas);
-    for(int i = 0; i < matriz->nlinhas; i++)
+    for (int i = 0; i < matriz->nlinhas; i++)
     {
-        for(int j = 0; j <matriz->ncolunas; j++)
+        for (int j = 0; j < matriz->ncolunas; j++)
         {
             scanf("%f", &matriz->m[i][j]);
         }
@@ -33,18 +33,20 @@ void introduzirMatriz (Matriz *matriz)
 }
 
 //função para mostrar matriz
-void mostrarMatriz(Matriz *matriz) {
+void mostrarMatriz(Matriz* matriz) {
 
     for (int i = 0; i < matriz->nlinhas; i++) {
         for (int j = 0; j < matriz->ncolunas; j++) {
             scanf("%f", matriz->m[i][j]);
         }
         printf("\n");
+        printf("\t");
     }
+
 }
 
 //função para somar matrizes
-void somarMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
+void somarMatriz(Matriz* matrizA, Matriz* matrizB, Matriz* matrizC)
 {
     for (int i = 0; i < matrizA->nlinhas; i++)
     {
@@ -56,7 +58,7 @@ void somarMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
 }
 
 //função para subtrair matrizes
-void subtrairMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
+void subtrairMatriz(Matriz* matrizA, Matriz* matrizB, Matriz* matrizC)
 {
     for (int i = 0; i < matrizA->nlinhas; i++)
     {
@@ -68,14 +70,14 @@ void subtrairMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
 }
 
 //função para multiplicar matrizes
-void multiplicarMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
+void multiplicarMatriz(Matriz* matrizA, Matriz* matrizB, Matriz* matrizC)
 {
     for (int i = 0; i < matrizA->nlinhas; i++)
     {
         for (int j = 0; j < matrizB->ncolunas; j++)
         {
             matrizC->m[i][j] = 0;
-            for(int k = 0; k < matrizA->ncolunas; k++)
+            for (int k = 0; k < matrizA->ncolunas; k++)
             {
                 matrizC->m[i][j] += matrizA->m[i][k] * matrizB->m[k][j];
             }
@@ -83,7 +85,8 @@ void multiplicarMatriz(Matriz *matrizA, Matriz *matrizB, Matriz *matrizC)
     }
 }
 
-int main () {
+int main() {
+    setlocale(LC_ALL, "pt_PT");
     Matriz matrizA, matrizB, matrizC;
     int nlinhasA, ncolunasA, nlinhasB, ncolunasB;
     int op;
@@ -98,9 +101,9 @@ int main () {
         printf("Escolha uma opção:");
         scanf("%d", &op);
         switch (op) {
-            case 1:
-                introduzirMatriz(&matrizA);
-                break;
+        case 1:
+            introduzirMatriz(&matrizA);
+            break;
         }
     } while (op != 0);
     printf("Cya\n");
